@@ -260,9 +260,9 @@ lmm=lm(formula=Y~X,data=df)
 lmm
 p=summary(lmm)
 print(p)
-print("The residuals are ")
+
 print(p$resid)
-print("The r squared value is ")
+
 R2<-p$r.squared
 #Adjusted R squared
 n <- nrow(df)
