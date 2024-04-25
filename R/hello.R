@@ -299,4 +299,4 @@ corr_matrix <- cor(mtcars)
 pairs(mtcars[1:4])
 corr_matrix <- cor(mtcars) Numbers of Lynx Trapped")
 ```
-
+}
