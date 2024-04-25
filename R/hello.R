@@ -295,11 +295,11 @@ head(mtcars)
 cor(mtcars)
 cov(mtcars)
 corr_matrix <- cor(mtcars)
-corrplot(corr_matrix, method ="color")
+#corrplot(corr_matrix, method ="color")
 #Scatter plot
 pairs(mtcars[1:4])
 corr_matrix <- cor(mtcars)
-heatmap(corr_matrix, xlab = "Features", ylab = "Features", main = "Heatmap of the correlation matrix for mtcars")
+#heatmap(corr_matrix, xlab = "Features", ylab = "Features", main = "Heatmap of the correlation matrix for mtcars")
 #The p value being less than 0.05 makes it asignificant feature. This can be done for other features as well.
 t.test(mtcars['mpg'], mu = 0)
 ```
@@ -351,10 +351,10 @@ rmse_sma <- sqrt(mean((df$sma_forecast[4:nrow(df)] - actual)^2))
 mape_sma <- mean(abs((df$sma_forecast[4:nrow(df)] - actual) / actual)) * 100
 rmse_wma <- sqrt(mean((df$wma_forecast[4:nrow(df)] - actual)^2))
 mape_wma <- mean(abs((df$wma_forecast[4:nrow(df)] - actual) / actual)) * 100
-cat("RMSE for 3-year Simple Moving Average Forecast:", rmse_sma, "\n")
-cat("MAPE for 3-year Simple Moving Average Forecast:", mape_sma, "%\n\n")
-cat("RMSE for Weighted Moving Average Forecast (weights 1, 2, 1):", rmse_wma, "\n")
-cat("MAPE for Weighted Moving Average Forecast (weights 1, 2, 1):", mape_wma, "%\n")
+#cat("RMSE for 3-year Simple Moving Average Forecast:", rmse_sma, "\n")
+#cat("MAPE for 3-year Simple Moving Average Forecast:", mape_sma, "%\n\n")
+#cat("RMSE for Weighted Moving Average Forecast (weights 1, 2, 1):", rmse_wma, "\n")
+#cat("MAPE for Weighted Moving Average Forecast (weights 1, 2, 1):", mape_wma, "%\n")
 #The 3-year Simple Moving Average Forecast gives an RMSE of 0.305707 and a MAPE of 4.550868%. The Weighted Moving
 #Average Forecast with weights 1, 2, 1 resulted in an RMSE of 0.3299832 and a MAPE of 5.255309%. Lower RMSE and MAPE values indicate
 #better accuracy. Thus, the 3-year Simple Moving Average Forecast gives slightly higher accuracy compared to the Weighted Moving Average
@@ -403,7 +403,7 @@ pred <- predict(tree, test_data, type = "class")
 accuracy <- mean(pred == test_data$Personal.Loan)
 conf_mat <- table(pred, test_data$Personal.Loan)
 # Print the results
-print(paste("Accuracy:", accuracy))
+#print(paste("Accuracy:", accuracy))
 print(conf_mat)
 #USING GINI
 tree_gain <- rpart(Personal.Loan ~ ., data = train_data, method = "class", parms = list(split = "gini"))
@@ -412,7 +412,7 @@ pred_gain <- predict(tree_gain, test_data, type = "class")
 accuracy_gain <- mean(pred_gain == test_data$Personal.Loan)
 conf_mat_gain <- table(pred_gain, test_data$Personal.Loan)
 # Print the results
-print(paste("Accuracy using Gain Ratio:", accuracy_gain))
+#print(paste("Accuracy using Gain Ratio:", accuracy_gain))
 print(conf_mat_gain)
 
 
@@ -423,7 +423,7 @@ Lab 7
 ```{r}
 #Assume df is the dataset
 
-df$status<-ifelse(df1$status=="Not Placed",1,0)
+#df$status<-ifelse(df1$status=="Not Placed",1,0)
 table(df$status)
 set.seed(45)
 sample<-sample.split(df$status, SplitRatio = =0.80)
@@ -471,13 +471,13 @@ test_data3<-test_data[41:59, ]
 svm_rbf<-svm(DEATH_EVENT~.,data=train_data,kernel="radial")
 predictions_rbf<-predict(svm_rbf,newdata=test_data1)
 accuracy_rbf<-mean(predictions_rbf==test_data1$DEATH_EVENT)
-print(paste("Accuracy of RBF Kernel: ",accuracy_rbf*100))
+#print(paste("Accuracy of RBF Kernel: ",accuracy_rbf*100))
 #similarly do for test data 2 and 3
 #Sigmoid kernel
 svm_rbf<-svm(DEATH_EVENT~.,data=train_data,kernel="sigmoid")
 predictions_rbf<-predict(svm_rbf,newdata=test_data1)
 accuracy_rbf<-mean(predictions_rbf==test_data1$DEATH_EVENT)
-print(paste("Accuracy of RBF Kernel: ",accuracy_rbf*100))
+#print(paste("Accuracy of RBF Kernel: ",accuracy_rbf*100))
 
 
 ```
@@ -501,7 +501,7 @@ print(final)
 clusplot(x,final$cluster,lines=0,shade=TRUE,color=TRUE,labels=2,plotchar=FALSE,span=TRUE,
          main=paste('Cluster of countries 3 clusters'),)
 #KMedoids
-kmedo<-pam(x,k=3,metric="euclidean",stand=FALSE)
+#kmedo<-pam(x,k=3,metric="euclidean",stand=FALSE)
 cluster_assignments<-kmedo$clustering
 medoid_indices<-kmedo$medoids
 sw<-silhouette(cluster_assignments,dist(x))
@@ -531,8 +531,8 @@ cat("Minimum value:", result$value, "\n")
 optimized_X1 <- result$par[1]
 optimized_X2 <- result$par[2]
 # Print the results
-cat("Optimized X1:", optimized_X1, "\n")
-cat("Optimized X2:", optimized_X2, "\n")
+#cat("Optimized X1:", optimized_X1, "\n")
+#cat("Optimized X2:", optimized_X2, "\n")
 
 #Now trying Gradient Descent using Negative log likelihood 
 #Applying gradient descent approach to minimize the given function using built-in optim() function.
@@ -552,10 +552,10 @@ result <- optim(par = initial_params, fn = log_likelihood, method = "BFGS")
 optimized_X1 <- result$par[1]
 optimized_X2 <- result$par[2]
 # Print the results
-cat("Minimum value:", result$value, "\n")
-cat("Optimal solution:", result$par, "\n")
-cat("Optimized X1:", optimized_X1, "\n")
-cat("Optimized X2:", optimized_X2, "\n")
+#cat("Minimum value:", result$value, "\n")
+#cat("Optimal solution:", result$par, "\n")
+#cat("Optimized X1:", optimized_X1, "\n")
+#cat("Optimized X2:", optimized_X2, "\n")
 
 
 ")
